@@ -27,6 +27,13 @@ Route::get('/recipes', [RecipeController::class, 'show_recipes']);
 Route::post('/recipes/get-recipe', [RecipeController::class, 'get_recipe_by_id']);
 Route::post('/recipes/rating', [RecipeController::class, 'rating']);
 
+Route::get('/author', function() {
+return response()->json([
+        'nama' => 'Reva Nursyawalni',
+        'nim' => '21416255201120',
+        'kelas' => 'IF21A'
+], 200);
+});
 Route::middleware(['admin.api'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard']);
 
